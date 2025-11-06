@@ -1,13 +1,13 @@
 """Provides the `AccountClient` class."""
 from dataclasses import dataclass
-from typing import Any, Dict, List, Optional, Sequence, Union
+from typing import Any, Dict, List, Optional, Union
 
 from anchorpy_core.idl import Idl, IdlTypeDefinition
 from based58 import b58encode
 from construct import Container
 from solana.rpc.commitment import Commitment
 from solana.rpc.types import MemcmpOpts
-from solana.transaction import Instruction
+from solders.instruction import Instruction
 from solders.keypair import Keypair
 from solders.pubkey import Pubkey
 from solders.system_program import CreateAccountParams, create_account
@@ -175,7 +175,7 @@ class AccountClient(object):
     async def all(  # noqa: A003
         self,
         buffer: Optional[bytes] = None,
-        filters: Optional[Sequence[Union[int, MemcmpOpts]]] = None,
+        filters: Optional[List[Union[int, MemcmpOpts]]] = None,
     ) -> list[ProgramAccount]:
         """Return all instances of this account type for the program.
 
@@ -193,7 +193,7 @@ class AccountClient(object):
             offset=0,
             bytes=bytes_arg,
         )
-        filters_to_use = [base_memcmp_opt] + [] if filters is None else filters
+        filters_to_use = [base_memcmp_opt] + ([] if filters is None else filters)
         resp = await self._provider.connection.get_program_accounts(
             self._program_id,
             encoding="base64",

@@ -1,5 +1,25 @@
 # Changelog
 
+## [0.21.0] - 2025-03-26
+
+### Fixed
+
+- Remove `solana.transaction` and the `bankrun` fixture (no longer supported by Solders) [#(161)](https://github.com/kevinheavey/anchorpy/pull/161)
+
+### Added
+
+- Add `types` coder to dynamic client [#(155)](https://github.com/kevinheavey/anchorpy/pull/155)
+
+## [0.20.2] - 2025-03-22
+
+### Fixed
+
+- Fix logical grouping issue in filters_to_use assignment [#(145)](https://github.com/kevinheavey/anchorpy/pull/145)
+
+### Changed
+
+- Relax solders dependency [#(158)](https://github.com/kevinheavey/anchorpy/pull/158)
+
 ## [0.20.1] - 2024-05-05
 
 ### Changed
