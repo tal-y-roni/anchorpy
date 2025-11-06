@@ -39,9 +39,6 @@ Documentation = "https://kevinheavey.github.io/anchorpy/"
 [project.scripts]
 anchorpy = "anchorpy.cli:app"
 
-[project.entry-points.pytest11]
-pytest_anchorpy = "anchorpy.pytest_plugin"
-
 [dependency-groups]
 dev = [
     "black>=22.3.0,<23",
